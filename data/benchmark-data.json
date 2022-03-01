@@ -1,0 +1,212 @@
+[
+	{
+		"Processor": "A100",
+		"Model": "FAST",
+		"Samples": 34100000.0
+	},
+	{
+		"Processor": "A100",
+		"Model": "HAC",
+		"Samples": 26800000.0
+	},
+	{
+		"Processor": "A100",
+		"Model": "SUP",
+		"Samples": 6580000.0
+	},
+	{
+		"Processor": "RTX3090 (HG)",
+		"Model": "FAST",
+		"Samples": 61000000.0
+	},
+	{
+		"Processor": "RTX3090 (HG)",
+		"Model": "HAC",
+		"Samples": 19100000.0
+	},
+	{
+		"Processor": "RTX3090 (HG)",
+		"Model": "SUP",
+		"Samples": 6250000.0
+	},
+	{
+		"Processor": "RTX3080Ti (eGPU)",
+		"Model": "FAST",
+		"Samples": 57100000.0
+	},
+	{
+		"Processor": "RTX3080Ti (eGPU)",
+		"Model": "HAC",
+		"Samples": 11800000.0
+	},
+	{
+		"Processor": "RTX3080Ti (eGPU)",
+		"Model": "SUP",
+		"Samples": 4530000.0
+	},
+	{
+		"Processor": "Titan RTX (P920)",
+		"Model": "FAST",
+		"Samples": 31700000.0
+	},
+	{
+		"Processor": "Titan RTX (P920)",
+		"Model": "HAC",
+		"Samples": 14800000.0
+	},
+	{
+		"Processor": "Titan RTX (P920)",
+		"Model": "SUP",
+		"Samples": 4300000.0
+	},
+	{
+		"Processor": "Telsa V100",
+		"Model": "FAST",
+		"Samples": 26600000.0
+	},
+	{
+		"Processor": "Telsa V100",
+		"Model": "HAC",
+		"Samples": 15800000.0
+	},
+	{
+		"Processor": "Telsa V100",
+		"Model": "SUP",
+		"Samples": 3920000.0
+	},
+	{
+		"Processor": "RTX6000 (Clara AGX)",
+		"Model": "FAST",
+		"Samples": 20200000.0
+	},
+	{
+		"Processor": "RTX6000 (Clara AGX)",
+		"Model": "HAC",
+		"Samples": 13600000.0
+	},
+	{
+		"Processor": "RTX6000 (Clara AGX)",
+		"Model": "SUP",
+		"Samples": 3420000.0
+	},
+	{
+		"Processor": "Titan V (DE)",
+		"Model": "FAST",
+		"Samples": 47200000.0
+	},
+	{
+		"Processor": "Titan V (DE)",
+		"Model": "HAC",
+		"Samples": 13400000.0
+	},
+	{
+		"Processor": "Titan V (DE)",
+		"Model": "SUP",
+		"Samples": 3070000.0
+	},
+	{
+		"Processor": "RTX3070 (HG)",
+		"Model": "FAST",
+		"Samples": 50500000.0
+	},
+	{
+		"Processor": "RTX3070 (HG)",
+		"Model": "HAC",
+		"Samples": 10400000.0
+	},
+	{
+		"Processor": "RTX3070 (HG)",
+		"Model": "SUP",
+		"Samples": 2950000.0
+	},
+	{
+		"Processor": "RTX3070 (MH)",
+		"Model": "FAST",
+		"Samples": 45900000.0
+	},
+	{
+		"Processor": "RTX3070 (MH)",
+		"Model": "HAC",
+		"Samples": 7320000.0
+	},
+	{
+		"Processor": "RTX3070 (MH)",
+		"Model": "SUP",
+		"Samples": 2400000.0
+	},
+	{
+		"Processor": "RTX3060 (eGPU)",
+		"Model": "FAST",
+		"Samples": 47000000.0
+	},
+	{
+		"Processor": "RTX3060 (eGPU)",
+		"Model": "HAC",
+		"Samples": 6400000.0
+	},
+	{
+		"Processor": "RTX3060 (eGPU)",
+		"Model": "SUP",
+		"Samples": 2280000.0
+	},
+	{
+		"Processor": "RTX4000 (mobile)",
+		"Model": "FAST",
+		"Samples": 28900000.0
+	},
+	{
+		"Processor": "RTX4000 (mobile)",
+		"Model": "HAC",
+		"Samples": 4820000.0
+	},
+	{
+		"Processor": "RTX4000 (mobile)",
+		"Model": "SUP",
+		"Samples": 1370000.0
+	},
+	{
+		"Processor": "Jetson Xavier AGX (16GB)",
+		"Model": "FAST",
+		"Samples": 8490000.0
+	},
+	{
+		"Processor": "Jetson Xavier AGX (16GB)",
+		"Model": "HAC",
+		"Samples": 1580000.0
+	},
+	{
+		"Processor": "Jetson Xavier AGX (16GB)",
+		"Model": "SUP",
+		"Samples": 441000.0
+	},
+	{
+		"Processor": "Jetson Xavier NX",
+		"Model": "FAST",
+		"Samples": 4370000.0
+	},
+	{
+		"Processor": "Jetson Xavier NX",
+		"Model": "HAC",
+		"Samples": null
+	},
+	{
+		"Processor": "Jetson Xavier NX",
+		"Model": "SUP",
+		"Samples": null
+	},
+	{
+		"Processor": "Xeon W-10885M (CPU)",
+		"Model": "FAST",
+		"Samples": 644000.0
+	},
+	{
+		"Processor": "Xeon W-10885M (CPU)",
+		"Model": "HAC",
+		"Samples": null
+	},
+	{
+		"Processor": "Xeon W-10885M (CPU)",
+		"Model": "SUP",
+		"Samples": null
+	}
+]
