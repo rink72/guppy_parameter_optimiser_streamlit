@@ -1,21 +1,12 @@
 import streamlit as st
 import pandas as pd
-import os
-import modules.converters as conv
+import modules.data as data
 
+from modules.database import GuppyPostGres
 
-def GetBenchmarkData() -> pd.DataFrame:
+guppyDb = GuppyPostGres(**st.secrets.pg_credentials)
 
-  # We will likely change this in the future to pull from
-  # a URL or dataabase
-  flatDataPath = os.path.join(os.path.dirname(__file__), '..', 'data', 'benchmark-data.csv')
-
-  flatData = pd.read_csv(flatDataPath)
-  typeData = conv.ConvertFlatToType(flatData=flatData)
-  return flatData, typeData
-
-
-flatData, typeData = GetBenchmarkData()
+flatData, typeData = data.GetBenchmarkData(db=guppyDb)
 cardTypes = flatData["Processor"]
 
 st.write("### Guppy optimiser table")
@@ -49,4 +40,6 @@ st.vega_lite_chart(typeDisplayData, {
       ]
     }
  })
+
+guppyDb.Close()
 

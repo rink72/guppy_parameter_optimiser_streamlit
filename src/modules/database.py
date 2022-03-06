@@ -1,4 +1,3 @@
-from sqlite3 import Row
 import psycopg2
 
 class GuppyPostGres():
@@ -56,6 +55,19 @@ class GuppyPostGres():
 
     data = cursor.fetchall()
 
+    records = []
     for processorRecord in data:
+      records.append(
+        {
+          "Processor": processorRecord[0],
+          "FAST": processorRecord[1],
+          "HAC": processorRecord[2],
+          "SUP": processorRecord[3]
+        }
+      )
 
+    return records
+
+  def Close(self):
+    self.dbConnection.close()
 
