@@ -40,11 +40,6 @@ class GuppyPostGres():
     cursor = self.dbConnection.cursor()
     cursor.execute(sqlScript)
 
-    if cursor.rowcount > 0:
-      return cursor.fetchall()
-    else:
-      return []
-
   def GetProcessorData(self):
 
     cursor = self.dbConnection.cursor()
@@ -67,6 +62,24 @@ class GuppyPostGres():
       )
 
     return records
+
+  def LoadProcessorRecord(self, record: dict):
+
+    cursor = self.dbConnection.cursor()
+    cursor.execute(
+      """
+      INSERT INTO
+        ProcessorData (processor, fastops, hacops, supops)
+      VALUES
+        ('{0}', {1}, {2}, {3})
+      ON CONFLICT DO NOTHING
+      """.format(
+        record["Processor"],
+        record["FAST"],
+        record["HAC"],
+        record["SUP"]
+      )
+    )
 
   def Close(self):
     self.dbConnection.close()

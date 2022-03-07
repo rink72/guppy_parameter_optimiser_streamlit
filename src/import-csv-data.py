@@ -1,18 +1,18 @@
 import os
+import pandas as pd
 import toml
 
 from modules.database import GuppyPostGres
 
 # Script vars
 pgConfigSection = "pg_credentials"
-pgInitScripts = [
-  os.path.join(os.path.dirname(__file__), "schema", "ProcessorDataCreate.sql"),
-  os.path.join(os.path.dirname(__file__), "schema", "ProcessorDataSeed.sql")
-]
 
 # Check configuration vars
 if not os.environ["GUPPY_CONFIG_PATH"]:
   raise Exception("Environment variable <GUPPY_CONFIG_PATH> not set.")
+
+if not os.environ["GUPPY_CSV_PATH"]:
+  raise Exception("Environment variable <GUPPY_CSV_PATH> not set.")
 
 
 try:
@@ -24,16 +24,18 @@ except:
 
 guppyDb = GuppyPostGres(**pgCreds)
 
-# Run init scripts
-for dbScriptPath in pgInitScripts:
-  print("Executing <{0}>".format(dbScriptPath))
+csvData = pd.read_csv(os.environ["GUPPY_CSV_PATH"])
 
-  with open(dbScriptPath) as f:
-   dbScript = f.read()
+for index, record in csvData.iterrows():
+  print ("Adding record for processor <{0}>, FAST: <{1}>, HAC: <{2}>, SUP: <{3}>".format(
+    record["Processor"],
+    record["FAST"],
+    record["HAC"],
+    record["SUP"]
+  ))
 
-  guppyDb.ExecuteScript(dbScript)
+  guppyDb.LoadProcessorRecord(record.to_dict())
 
 
-print("Retrieving current <ProcessorData> table records \n")
-print(guppyDb.GetProcessorData())
+
 
