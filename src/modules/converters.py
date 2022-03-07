@@ -9,6 +9,12 @@ def ConvertStringToFloat(string: str) -> float:
   except:
     return None
 
+def ConvertStringToInt(string: str) -> int:
+  try:
+    return int(ConvertStringToFloat(string))
+  except:
+    return None
+
 
 # Convert the flat csv file to a JSON file
 # based on model. This is mainly for ease of

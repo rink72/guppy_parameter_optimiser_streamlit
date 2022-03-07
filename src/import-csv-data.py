@@ -1,6 +1,7 @@
 import os
 import pandas as pd
 import toml
+import modules.converters as conv
 
 from modules.database import GuppyPostGres
 
@@ -27,6 +28,11 @@ guppyDb = GuppyPostGres(**pgCreds)
 csvData = pd.read_csv(os.environ["GUPPY_CSV_PATH"])
 
 for index, record in csvData.iterrows():
+
+  record["FAST"] = conv.ConvertStringToInt(record["FAST"])
+  record["HAC"] = conv.ConvertStringToInt(record["HAC"])
+  record["SUP"] = conv.ConvertStringToInt(record["SUP"])
+
   print ("Adding record for processor <{0}>, FAST: <{1}>, HAC: <{2}>, SUP: <{3}>".format(
     record["Processor"],
     record["FAST"],

@@ -71,14 +71,13 @@ class GuppyPostGres():
       INSERT INTO
         ProcessorData (processor, fastops, hacops, supops)
       VALUES
-        ('{0}', {1}, {2}, {3})
+        (%s, %s, %s, %s)
       ON CONFLICT DO NOTHING
-      """.format(
-        record["Processor"],
-        record["FAST"],
-        record["HAC"],
-        record["SUP"]
-      )
+      """,
+      (record["Processor"],
+      record["FAST"],
+      record["HAC"],
+      record["SUP"],)
     )
 
   def Close(self):
