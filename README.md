@@ -45,3 +45,11 @@ Required environment variables:
 - `GUPPPY_CSV_PATH` - The path to the CSV file to import
 - `GUPPY_CONFIG_PATH` - The path to the configuration file. Usually `secrets.local.toml` in the `.streamlit` folder
 
+An small version of the CSV format can be found in the `data` folder and an example is below.
+
+```csv
+Processor,FAST,HAC,SUP
+A100,3.41E+07,2.68E+07,6.58E+06
+RTX3090 (HG),6.10E+07,1.91E+07,6.25E+06
+RTX3080Ti (eGPU),5.71E+07,1.18E+07,4.53E+06
+```
