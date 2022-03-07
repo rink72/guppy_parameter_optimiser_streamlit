@@ -4,14 +4,16 @@ import modules.data as data
 
 from modules.database import GuppyPostGres
 
-guppyDb = GuppyPostGres(**st.secrets.pg_credentials)
-
 
 if "flatData" not in st.session_state or "typeData" not in st.session_state:
+  guppyDb = GuppyPostGres(**st.secrets.pg_credentials)
+
   flatData, typeData = data.GetBenchmarkData(db=guppyDb)
   st.session_state["flatData"] = flatData
   st.session_state["typeData"] = typeData
 else:
+  guppyDb = None
+
   flatData = st.session_state["flatData"]
   typeData = st.session_state["typeData"]
 
@@ -49,5 +51,6 @@ st.vega_lite_chart(typeDisplayData, {
     }
  })
 
-guppyDb.Close()
+if guppyDb:
+  guppyDb.Close()
 
