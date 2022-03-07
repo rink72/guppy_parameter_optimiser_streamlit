@@ -6,7 +6,15 @@ from modules.database import GuppyPostGres
 
 guppyDb = GuppyPostGres(**st.secrets.pg_credentials)
 
-flatData, typeData = data.GetBenchmarkData(db=guppyDb)
+
+if "flatData" not in st.session_state or "typeData" not in st.session_state:
+  flatData, typeData = data.GetBenchmarkData(db=guppyDb)
+  st.session_state["flatData"] = flatData
+  st.session_state["typeData"] = typeData
+else:
+  flatData = st.session_state["flatData"]
+  typeData = st.session_state["typeData"]
+
 cardTypes = flatData["Processor"]
 
 st.write("### Guppy optimiser table")
