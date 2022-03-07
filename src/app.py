@@ -1,21 +1,22 @@
 import streamlit as st
 import pandas as pd
-import os
-import helpers.converters as conv
+import modules.data as data
+
+from modules.database import GuppyPostGres
 
 
-def GetBenchmarkData() -> pd.DataFrame:
+if "flatData" not in st.session_state or "typeData" not in st.session_state:
+  guppyDb = GuppyPostGres(**st.secrets.pg_credentials)
 
-  # We will likely change this in the future to pull from
-  # a URL or dataabase
-  flatDataPath = os.path.join(os.path.dirname(__file__), '..', 'data', 'benchmark-data.csv')
+  flatData, typeData = data.GetBenchmarkData(db=guppyDb)
+  st.session_state["flatData"] = flatData
+  st.session_state["typeData"] = typeData
+else:
+  guppyDb = None
 
-  flatData = pd.read_csv(flatDataPath)
-  typeData = conv.ConvertFlatToType(flatData=flatData)
-  return flatData, typeData
+  flatData = st.session_state["flatData"]
+  typeData = st.session_state["typeData"]
 
-
-flatData, typeData = GetBenchmarkData()
 cardTypes = flatData["Processor"]
 
 st.write("### Guppy optimiser table")
@@ -49,4 +50,7 @@ st.vega_lite_chart(typeDisplayData, {
       ]
     }
  })
+
+if guppyDb:
+  guppyDb.Close()
 
