@@ -14,7 +14,6 @@ pgInitScripts = [
 if not os.environ["GUPPY_CONFIG_PATH"]:
   raise Exception("Environment variable <GUPPY_CONFIG_PATH> not set.")
 
-
 try:
   config = toml.load(os.environ["GUPPY_CONFIG_PATH"])
   pgCreds = config[pgConfigSection]
